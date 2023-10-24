@@ -2,15 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useWeb3 } from "../contexts/Web3Context";
 import EthereumAccount from "../components/EthereumAccount";
 import { useParams } from "react-router-dom";
+import CompanyDashboard from "./companyPage";
+import DeveloperDashboard from "./developerPage";
+import CertifierDashboard from "./certifierPage";
 import {
-	Table,
-	TableBody,
-	TableCell,
-	TableHead,
-	TableRow,
-	Paper,
 	Typography,
-	Grid,
 	AppBar,
 	Toolbar,
 } from "@mui/material";
@@ -145,24 +141,81 @@ function CarbonCreditDashboard() {
 						onChange={(e) => handleRoleChange(e)}
 					>
 						<option value="company">Company</option>
-						<option value="projectDeveloper">Project Developer</option>
+						<option value="projectDeveloper">
+							Project Developer
+						</option>
 						<option value="certifier">Certifier</option>
 					</select>
 				</Toolbar>
 			</AppBar>
-			
 
 			<div style={{ display: role === "company" ? "block" : "none" }}>
 				<h1>this is company display</h1>
+				<CompanyDashboard
+					id={id}
+					accountBalance={accountBalance}
+					accountHolder={accountHolder}
+                    selectedAccount={selectedAccount}
+                    setAccountHolder={setAccountHolder}
+                    accounts={accounts}
+                    setSelectedAccount={setSelectedAccount}
+                    creditAmount={creditAmount}
+                    setCreditAmount={setCreditAmount}
+                    issueCarbonCredits={issueCarbonCredits}
+                    getCreditBalance={getCreditBalance}
+                    transactions={transactions}
+                    transferCarbonCredits={transferCarbonCredits}
+                    creditsIssuedList={creditsIssuedList}
+                    setAccounts={setAccounts}
+				/>
 			</div>
-            <div style={{ display: role === "certifier" ? "block" : "none" }}>
+			<div style={{ display: role === "certifier" ? "block" : "none" }}>
 				<h1>this is certifier display</h1>
+				<CertifierDashboard
+					id={id}
+					accountBalance={accountBalance}
+					accountHolder={accountHolder}
+                    selectedAccount={selectedAccount}
+                    setAccountHolder={setAccountHolder}
+                    accounts={accounts}
+                    setSelectedAccount={setSelectedAccount}
+                    creditAmount={creditAmount}
+                    setCreditAmount={setCreditAmount}
+                    issueCarbonCredits={issueCarbonCredits}
+                    getCreditBalance={getCreditBalance}
+                    transactions={transactions}
+                    transferCarbonCredits={transferCarbonCredits}
+                    creditsIssuedList={creditsIssuedList}
+                    setAccounts={setAccounts}
+				/>
+				
 			</div>
-            <div style={{ display: role === "projectDeveloper" ? "block" : "none" }}>
+			<div
+				style={{
+					display: role === "projectDeveloper" ? "block" : "none",
+				}}
+			>
 				<h1>this is project developer display</h1>
+				<DeveloperDashboard
+					id={id}
+					accountBalance={accountBalance}
+					accountHolder={accountHolder}
+                    selectedAccount={selectedAccount}
+                    setAccountHolder={setAccountHolder}
+                    accounts={accounts}
+                    setSelectedAccount={setSelectedAccount}
+                    creditAmount={creditAmount}
+                    setCreditAmount={setCreditAmount}
+                    issueCarbonCredits={issueCarbonCredits}
+                    getCreditBalance={getCreditBalance}
+                    transactions={transactions}
+                    transferCarbonCredits={transferCarbonCredits}
+                    creditsIssuedList={creditsIssuedList}
+                    setAccounts={setAccounts}
+				/>
 			</div>
 
-			<div style={{ margin: "20px" }}>
+			{/* <div style={{ margin: "20px" }}>
 				<Grid container spacing={3}>
 					<Grid item xs={6}>
 						<Paper
@@ -364,7 +417,7 @@ function CarbonCreditDashboard() {
 						</Table>
 					</Paper>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 }
