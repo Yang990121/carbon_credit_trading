@@ -1,0 +1,645 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_companyInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_projectTitle",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_projectDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_emissionsOffset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_creditsIssued",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_financialInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_projectDocumentation",
+						"type": "string"
+					}
+				],
+				"name": "createProject",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getAllProjects",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					}
+				],
+				"name": "getProjectById",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project",
+						"name": "project",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "companyName",
+						"type": "string"
+					}
+				],
+				"name": "getProjectInfoByCompany",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project",
+						"name": "project",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_purchaseStatus",
+						"type": "string"
+					}
+				],
+				"name": "getProjectsByPurchaseStatus",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_verificationStatus",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "_purchaseStatus",
+						"type": "string"
+					}
+				],
+				"name": "getProjectsByStatus",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_verificationStatus",
+						"type": "string"
+					}
+				],
+				"name": "getProjectsByVerificationStatus",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "projectId",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "projectTitle",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDescription",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "emissionsOffset",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "creditsIssued",
+								"type": "uint256"
+							},
+							{
+								"internalType": "string",
+								"name": "financialInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "projectDocumentation",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "verificationStatus",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "purchaseStatus",
+								"type": "string"
+							}
+						],
+						"internalType": "struct ProjectContract.Project[]",
+						"name": "",
+						"type": "tuple[]"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextProjectId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "projects",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "projectTitle",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "projectDescription",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "companyInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "emissionsOffset",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "creditsIssued",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "financialInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "projectDocumentation",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "verificationStatus",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "purchaseStatus",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "newCreditsIssued",
+						"type": "uint256"
+					}
+				],
+				"name": "updateCarbonCredits",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string",
+						"name": "_verificationStatus",
+						"type": "string"
+					}
+				],
+				"name": "updateVerificationStatus",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/contracts/Project.sol": "ProjectContract"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"src/contracts/Project.sol": {
+			"keccak256": "0x4fae3ea57e59205c1dad1bbb5c8cdc4307ee5333212c4cf299b09937440bd0d2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://9676d173be5490ab09fe18db7c85a2ab125265529b7ce559163e4e6e3d044bea",
+				"dweb:/ipfs/QmTukuaA32hbSPED2Bh6r2AjXXNMdAhw1RyqBb5QPXM6Ly"
+			]
+		}
+	},
+	"version": 1
+}

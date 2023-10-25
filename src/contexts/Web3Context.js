@@ -2,12 +2,13 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import Web3 from 'web3';
 import CarbonCreditContract from '../contracts/artifacts/CarbonCredit.json';
-
+import ProjectContract from '../contracts/artifacts/ProjectContract.json'
 const Web3Context = createContext();
 
 export function Web3Provider({ children }) {
     const [web3, setWeb3] = useState(null);
     const [carbonCreditContract, setCarbonCreditContract] = useState(null);
+    const [projectContract, setProjectContract] = useState(null);
 
     useEffect(() => {
         // Check if the Ethereum provider (e.g., MetaMask) is available
@@ -32,36 +33,42 @@ export function Web3Provider({ children }) {
     useEffect(() => {
         if (web3) {
             getCarbonCreditContract(web3);
+            getProjectContract(web3);
         }
     }, [web3])
 
-
+    // CarbonCredit.sol
+    // Get Carbon Credit Contract
     const getCarbonCreditContract = async (web3) => {
-        console.log(web3);
         try {
-            const networkId = await web3.eth.net.getId();
-            console.log('networkID:', networkId)
-            // const deployedNetwork = await CarbonCreditContract.networks[networkId];
-            // console.log('deployed Network:', deployedNetwork)
-            // if (deployedNetwork) {
             const contractInstance = new web3.eth.Contract(
                 CarbonCreditContract.abi,
-                // deployedNetwork.address
-                // '0x7d612A772344eEDdc6Fc1a930386ea555f999251'
                 '0x7d612A772344eEDdc6Fc1a930386ea555f999251'
             );
-            console.log('contractInstance:', contractInstance)
             setCarbonCreditContract(contractInstance);
-            // } else {
-            //     console.log('The contract is not deployed on the current network');
-            // }
         } catch (error) {
             console.error('Error connecting to Web3', error);
         }
     }
 
+    // Project.sol
+    // Create Project
+    const getProjectContract = async (web3) => {
+        try {
+
+            // const networkId = await web3.eth.net.getId();
+            // const contractData = ProjectContract.networks[networkId];
+            const contractInstance = new web3.eth.Contract(
+                ProjectContract.abi,
+                '0x6A42cBf01AaA67A1942741bE7dDe3c644331d259'
+            );
+            setProjectContract(contractInstance);
+        } catch (error) {
+            console.error('Error connecting to Web3', error);
+        }
+    }
     return (
-        <Web3Context.Provider value={{ web3, carbonCreditContract }}>
+        <Web3Context.Provider value={{ web3, carbonCreditContract, projectContract }}>
             {children}
         </Web3Context.Provider>
     );

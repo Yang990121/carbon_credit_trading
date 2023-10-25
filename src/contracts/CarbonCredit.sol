@@ -13,7 +13,6 @@ contract CarbonCredit {
 
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
-    event CarbonCreditIssued(address indexed account, uint256 amount);
     event CarbonCreditTransferred(address indexed from, address indexed to, uint256 value);
 
     constructor(
@@ -59,15 +58,7 @@ contract CarbonCredit {
         return true;
     }
 
-    function issueCarbonCredits(address account, uint256 amount) public returns (bool success) {
-        require(msg.sender == account, "Only the account holder can issue carbon credits");
-        require(amount > 0, "Amount must be greater than 0");
-
-        carbonCredits[account] += amount;
-        emit CarbonCreditIssued(account, amount);
-
-        return true;
-    }
+    
 
     function transferCarbonCredits(address to, uint256 value) public returns (bool success) {
         require(to != address(0), "Invalid address");

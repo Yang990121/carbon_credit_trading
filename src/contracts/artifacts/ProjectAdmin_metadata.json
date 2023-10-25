@@ -1,0 +1,208 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_projectContractAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "_carbonCreditsAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "CarbonCreditIssued",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_projectId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "verificationStatus",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "carbonCredits",
+						"type": "uint256"
+					}
+				],
+				"name": "ProjectVerification",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ccContract",
+				"outputs": [
+					{
+						"internalType": "contract CarbonCredit",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "issueCarbonCredits",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "success",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "projectContract",
+				"outputs": [
+					{
+						"internalType": "contract ProjectContract",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "_projectId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bool",
+						"name": "_isCertified",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_carbonCredits",
+						"type": "uint256"
+					}
+				],
+				"name": "verifyProject",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/contracts/ProjectAdmin.sol": "ProjectAdmin"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"src/contracts/CarbonCredit.sol": {
+			"keccak256": "0xb1cf637137730ac08dde699820ede6aa08773608fe385a90cefe13a3e5301732",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a3478695f491f4aa91fb510f2ae44571c4a50f1216f5c662fe263f09ccc216f5",
+				"dweb:/ipfs/QmdqiYQTpdaSPV3BCieLZTFgthb9kSLxiDFYV8mVWnCbby"
+			]
+		},
+		"src/contracts/Project.sol": {
+			"keccak256": "0x52c4d6cd25ba5b08d90941fd5b50ffe0a9d0b718f3e19f9c8399c9fbe71e6ef5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b59f80501848e9a4094f4a434fc790b6e94af492ab0404fba00189465520b2e4",
+				"dweb:/ipfs/QmZqVxiCqKFQY7bzJdGdWSm88AjZwL7ZvrWbX7nSyVUBQr"
+			]
+		},
+		"src/contracts/ProjectAdmin.sol": {
+			"keccak256": "0x1c3e76e535ffa0147b4803c9878bfdd9823ed5d3545b8061bcf9dce3d0ce90c0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4e36adfe9d36d575d34486b69b4ffd52020fd9ca30947398866235d9497031f7",
+				"dweb:/ipfs/Qmb63jbJxjAYLtDsKyqL4CQXQyfWiaQwQUgnvWQXDnC3nm"
+			]
+		}
+	},
+	"version": 1
+}
