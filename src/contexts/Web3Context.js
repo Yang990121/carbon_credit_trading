@@ -43,7 +43,7 @@ export function Web3Provider({ children }) {
         try {
             const contractInstance = new web3.eth.Contract(
                 CarbonCreditContract.abi,
-                '0x7d612A772344eEDdc6Fc1a930386ea555f999251'
+                '0x3ECdd4bA1238204347A23d3bA8191B779E838C01'
             );
             setCarbonCreditContract(contractInstance);
         } catch (error) {
@@ -60,7 +60,7 @@ export function Web3Provider({ children }) {
             // const contractData = ProjectContract.networks[networkId];
             const contractInstance = new web3.eth.Contract(
                 ProjectContract.abi,
-                '0x6A42cBf01AaA67A1942741bE7dDe3c644331d259'
+                '0x6518a39c400b29EEB68956d4B1Fc36BBF5B20660'
             );
             setProjectContract(contractInstance);
         } catch (error) {

@@ -66,17 +66,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -137,17 +137,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -208,17 +208,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -279,17 +279,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -355,17 +355,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -426,17 +426,17 @@
 							},
 							{
 								"internalType": "string",
+								"name": "companyInfo",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
 								"name": "projectTitle",
 								"type": "string"
 							},
 							{
 								"internalType": "string",
 								"name": "projectDescription",
-								"type": "string"
-							},
-							{
-								"internalType": "string",
-								"name": "companyInfo",
 								"type": "string"
 							},
 							{
@@ -521,17 +521,17 @@
 					},
 					{
 						"internalType": "string",
+						"name": "companyInfo",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
 						"name": "projectTitle",
 						"type": "string"
 					},
 					{
 						"internalType": "string",
 						"name": "projectDescription",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "companyInfo",
 						"type": "string"
 					},
 					{
@@ -633,11 +633,11 @@
 	},
 	"sources": {
 		"src/contracts/Project.sol": {
-			"keccak256": "0x4fae3ea57e59205c1dad1bbb5c8cdc4307ee5333212c4cf299b09937440bd0d2",
+			"keccak256": "0x8db4fd1f4a1dcaf0cf6ac3e649a4ed8fcead807fda5348d0295726fae49d7f77",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://9676d173be5490ab09fe18db7c85a2ab125265529b7ce559163e4e6e3d044bea",
-				"dweb:/ipfs/QmTukuaA32hbSPED2Bh6r2AjXXNMdAhw1RyqBb5QPXM6Ly"
+				"bzz-raw://73200a933fd1aff447f5039122301b44d9975b0ae8360e096c40b0d08c9272b8",
+				"dweb:/ipfs/QmYrY5Rjr4YrWr2W7Cfs7PSWubz7dewSuK99hZz4w6fZBK"
 			]
 		}
 	},

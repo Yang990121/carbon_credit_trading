@@ -7,9 +7,9 @@ contract ProjectContract {
 
     struct Project {
         uint256 projectId;
+        string companyInfo;
         string projectTitle;
         string projectDescription;
-        string companyInfo;
         uint256 emissionsOffset;
         uint256 creditsIssued;
         string financialInfo;
@@ -83,12 +83,27 @@ contract ProjectContract {
     }
     
     function getProjectsByVerificationStatus(string memory _verificationStatus) public view returns (Project[] memory) {
-        Project[] memory result;
+        uint256 count = 0;
+
+        // First, count the number of projects that match the verification status
         for (uint256 i = 0; i < projects.length; i++) {
             if (keccak256(abi.encodePacked(projects[i].verificationStatus)) == keccak256(abi.encodePacked(_verificationStatus))) {
-                result[i] = projects[i];
+                count++;
             }
         }
+
+        // Create a dynamic array to store the matching projects
+        Project[] memory result = new Project[](count);
+        uint256 resultIndex = 0;
+
+        // Populate the result array with matching projects
+        for (uint256 i = 0; i < projects.length; i++) {
+            if (keccak256(abi.encodePacked(projects[i].verificationStatus)) == keccak256(abi.encodePacked(_verificationStatus))) {
+                result[resultIndex] = projects[i];
+                resultIndex++;
+            }
+        }
+
         return result;
     }
 
@@ -112,19 +127,34 @@ contract ProjectContract {
         return result;
     }
 
-    function getProjectsByStatus(
-        string memory _verificationStatus,
-        string memory _purchaseStatus
-    ) public view returns (Project[] memory) {
-        Project[] memory result;
+    function getProjectsByStatus(string memory _verificationStatus, string memory _purchaseStatus) public view returns (Project[] memory) {
+        uint256 count = 0;
+
+        // First, count the number of projects that match both the verification and purchase status
         for (uint256 i = 0; i < projects.length; i++) {
             if (
                 keccak256(abi.encodePacked(projects[i].verificationStatus)) == keccak256(abi.encodePacked(_verificationStatus)) &&
                 keccak256(abi.encodePacked(projects[i].purchaseStatus)) == keccak256(abi.encodePacked(_purchaseStatus))
             ) {
-                result[i] = projects[i];
+                count++;
             }
         }
+
+        // Create a dynamic array to store the matching projects
+        Project[] memory result = new Project[](count);
+        uint256 resultIndex = 0;
+
+        // Populate the result array with matching projects
+        for (uint256 i = 0; i < projects.length; i++) {
+            if (
+                keccak256(abi.encodePacked(projects[i].verificationStatus)) == keccak256(abi.encodePacked(_verificationStatus)) &&
+                keccak256(abi.encodePacked(projects[i].purchaseStatus)) == keccak256(abi.encodePacked(_purchaseStatus))
+            ) {
+                result[resultIndex] = projects[i];
+                resultIndex++;
+            }
+        }
+
         return result;
     }
 

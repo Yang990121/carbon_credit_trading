@@ -5,22 +5,11 @@ import { useParams } from "react-router-dom";
 import CompanyDashboard from "./companyPage";
 import DeveloperDashboard from "./developerPage";
 import CertifierDashboard from "./certifierPage";
-import ProjectGenerator from "../components/ProjectGenerator";
 import {
     Typography,
     AppBar,
-    Toolbar,
-    Table,
-    TableBody,
-    TableCell,
-    TableHead,
-    TableRow,
-    Paper,
-    Grid,
-    Hidden,
+    Toolbar
 } from "@mui/material";
-import { create } from "@mui/material/styles/createTransitions";
-
 
 function CarbonCreditDashboard() {
     const [creditsIssuedList, setCreditsIssuedList] = useState([]);
@@ -36,7 +25,6 @@ function CarbonCreditDashboard() {
     // Handle dropdown change
     const handleRoleChange = (event) => {
         setRole(event.target.value);
-        console.log("role", role);
     };
 
     useEffect(() => {
@@ -173,6 +161,7 @@ function CarbonCreditDashboard() {
                     transferCarbonCredits={transferCarbonCredits}
                     creditsIssuedList={creditsIssuedList}
                     setAccounts={setAccounts}
+                    role={role}
                 />
             </div>
             <div style={{ display: role === "certifier" ? "block" : "none" }}>
@@ -193,6 +182,7 @@ function CarbonCreditDashboard() {
                     transferCarbonCredits={transferCarbonCredits}
                     creditsIssuedList={creditsIssuedList}
                     setAccounts={setAccounts}
+                    role={role}
                 />
 
             </div>
@@ -218,6 +208,7 @@ function CarbonCreditDashboard() {
                     transferCarbonCredits={transferCarbonCredits}
                     creditsIssuedList={creditsIssuedList}
                     setAccounts={setAccounts}
+                    role={role}
                 />
             </div>
 
@@ -536,7 +527,6 @@ function CarbonCreditDashboard() {
     //         </div>
 
     //         <div className="project-list">
-    //             <ProjectGenerator selectedAccount={selectedAccount} />
 
     //         </div>
     //     </div >
