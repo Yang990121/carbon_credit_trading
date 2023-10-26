@@ -11,6 +11,7 @@ import {
 	Grid,
 } from "@mui/material";
 import ProjectGenerator from "../components/ProjectGenerator";
+import PopUp from "./PopUp";
 
 const CertifierDashboard = ({
 	id,
@@ -149,6 +150,7 @@ const CertifierDashboard = ({
 								Transfer Credit
 							</button>
 						</div>
+                        <PopUp />
 						<Typography
 							variant="h5"
 							style={{ marginTop: "20px" }}
