@@ -29,21 +29,19 @@ contract ProjectAdmin {
     }
 
     function verifyProject(uint256 _projectId, bool _isCertified, uint256 _carbonCredits) public {
-        require(msg.sender == owner, "Only the owner can verify projects");
-
         // Get the project details from ProjectContract
         ProjectContract.Project memory project = projectContract.getProjectById(_projectId);
 
         // Check if the project is already verified
         require(
-            keccak256(abi.encodePacked(project.verificationStatus)) == keccak256(abi.encodePacked("Under Review")),
+            keccak256(abi.encodePacked(project.verificationStatus)) != keccak256(abi.encodePacked("Certified")),
             "Project verification has already been completed"
         );
 
         if (_isCertified) {
             // Update verification status to "Certified"
             projectContract.updateVerificationStatus(_projectId, "Certified");
-
+            projectContract.updatePurchaseStatus(_projectId,"Available");
             // Issue carbon credits to the project
             issueCarbonCredits(_projectId, _carbonCredits);
 
@@ -61,7 +59,7 @@ contract ProjectAdmin {
     // Add other functions for interacting with ProjectContract as needed
     function issueCarbonCredits(uint256 _projectId , uint256 amount) public returns (bool success) {
         require(amount > 0, "Amount must be greater than 0");
-        projectContract.updateCarbonCredits(_projectId, amount);
+        projectContract.issueCredit(_projectId, amount);
         emit CarbonCreditIssued(_projectId, amount);
 
         return true;

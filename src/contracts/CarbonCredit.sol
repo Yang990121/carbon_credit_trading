@@ -1,12 +1,30 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import "./Project.sol";
 contract CarbonCredit {
-    string public name;
-    string public symbol;
-    uint8 public decimals;
-    uint256 public totalSupply;
+    Credit[] public credits;
+    CreditTransaction[] public creditTransactions;
+    // ProjectContract public projectContract;
 
+    // constructor(address _projectContractAddress){
+    //     // projectContract = ProjectContract(_projectContractAddress);
+    // }
+
+    struct Credit {
+        address certifier;
+        uint256 issuanceTime;
+        uint256 amount;
+        string projectTitle;
+        address projectDeveloper;
+    }
+
+    struct CreditTransaction {
+        address from;
+        address to;
+        uint256 amount;
+        uint256 timestamp;
+    }
     mapping(address => uint256) public balanceOf;
     mapping(address => mapping(address => uint256)) public allowance;
     mapping(address => uint256) public carbonCredits; // Store the number of carbon credits for each address
@@ -14,19 +32,7 @@ contract CarbonCredit {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
     event CarbonCreditTransferred(address indexed from, address indexed to, uint256 value);
-
-    constructor(
-        string memory tokenName,
-        string memory tokenSymbol,
-        uint8 tokenDecimals,
-        uint256 initialSupply
-    ) {
-        name = tokenName;
-        symbol = tokenSymbol;
-        decimals = tokenDecimals;
-        totalSupply = initialSupply * 10**uint256(decimals);
-        balanceOf[msg.sender] = totalSupply;
-    }
+    event CreditIssued(address certifier, uint256 issuanceTime, uint256 amount, string projectTitle, address projectDeveloper );   
 
     function approve(address spender, uint256 value) public returns (bool success) {
         allowance[msg.sender][spender] = value;
@@ -75,4 +81,11 @@ contract CarbonCredit {
     function getCarbonCredits(address account) public view returns (uint256) {
         return carbonCredits[account];
     }
+
+    function issueCredit(Credit memory newCredit) public {
+        credits.push(newCredit);
+        transfer(newCredit.projectDeveloper, newCredit.amount);
+        emit CarbonCredit.CreditIssued(newCredit.certifier, newCredit.issuanceTime, newCredit.amount, newCredit.projectTitle, newCredit.projectDeveloper);
+    }
+    
 }

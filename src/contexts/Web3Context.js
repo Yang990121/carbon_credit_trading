@@ -3,12 +3,14 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 import Web3 from 'web3';
 import CarbonCreditContract from '../contracts/artifacts/CarbonCredit.json';
 import ProjectContract from '../contracts/artifacts/ProjectContract.json'
+import ProjectAdminContract from '../contracts/artifacts/ProjectAdmin.json';
 const Web3Context = createContext();
 
 export function Web3Provider({ children }) {
     const [web3, setWeb3] = useState(null);
     const [carbonCreditContract, setCarbonCreditContract] = useState(null);
     const [projectContract, setProjectContract] = useState(null);
+    const [projectAdminContract, setProjectAdminContract] = useState(null);
 
     useEffect(() => {
         // Check if the Ethereum provider (e.g., MetaMask) is available
@@ -34,6 +36,7 @@ export function Web3Provider({ children }) {
         if (web3) {
             getCarbonCreditContract(web3);
             getProjectContract(web3);
+            getProjectAdminContract(web3);
         }
     }, [web3])
 
@@ -43,7 +46,7 @@ export function Web3Provider({ children }) {
         try {
             const contractInstance = new web3.eth.Contract(
                 CarbonCreditContract.abi,
-                '0x3ECdd4bA1238204347A23d3bA8191B779E838C01'
+                '0xc7DBb56342416EE51e7501DD680C6E3d71aFc1BB'
             );
             setCarbonCreditContract(contractInstance);
         } catch (error) {
@@ -60,18 +63,35 @@ export function Web3Provider({ children }) {
             // const contractData = ProjectContract.networks[networkId];
             const contractInstance = new web3.eth.Contract(
                 ProjectContract.abi,
-                '0x6518a39c400b29EEB68956d4B1Fc36BBF5B20660'
+                '0x311cb6F4Ea53f58C9dCBEe93738e45f41b80F26C'
             );
             setProjectContract(contractInstance);
         } catch (error) {
             console.error('Error connecting to Web3', error);
         }
     }
+
+    const getProjectAdminContract = async (web3) => {
+        try {
+
+            // const networkId = await web3.eth.net.getId();
+            // const contractData = ProjectContract.networks[networkId];
+            const contractInstance = new web3.eth.Contract(
+                ProjectAdminContract.abi,
+                '0x9C7267E60feADF1dF5B29a2c4D94348063dFB3C1'
+            );
+            setProjectAdminContract(contractInstance);
+        } catch (error) {
+            console.error('Error connecting to Web3', error);
+        }
+    }
     return (
-        <Web3Context.Provider value={{ web3, carbonCreditContract, projectContract }}>
+        <Web3Context.Provider value={{ web3, carbonCreditContract, projectContract, projectAdminContract }}>
             {children}
         </Web3Context.Provider>
     );
+
+
 }
 
 export function useWeb3() {

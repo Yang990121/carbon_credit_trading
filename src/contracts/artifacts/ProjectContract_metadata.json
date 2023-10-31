@@ -1,14 +1,33 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.22+commit.4fc1097e"
 	},
 	"language": "Solidity",
 	"output": {
 		"abi": [
 			{
-				"inputs": [],
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_carbonCreditContractAddress",
+						"type": "address"
+					}
+				],
 				"stateMutability": "nonpayable",
 				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "carbonCreditContract",
+				"outputs": [
+					{
+						"internalType": "contract CarbonCredit",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
 			},
 			{
 				"inputs": [
@@ -63,6 +82,11 @@
 								"internalType": "uint256",
 								"name": "projectId",
 								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
 							},
 							{
 								"internalType": "string",
@@ -136,6 +160,11 @@
 								"type": "uint256"
 							},
 							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
+							},
+							{
 								"internalType": "string",
 								"name": "companyInfo",
 								"type": "string"
@@ -207,6 +236,11 @@
 								"type": "uint256"
 							},
 							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
+							},
+							{
 								"internalType": "string",
 								"name": "companyInfo",
 								"type": "string"
@@ -276,6 +310,11 @@
 								"internalType": "uint256",
 								"name": "projectId",
 								"type": "uint256"
+							},
+							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
 							},
 							{
 								"internalType": "string",
@@ -354,6 +393,11 @@
 								"type": "uint256"
 							},
 							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
+							},
+							{
 								"internalType": "string",
 								"name": "companyInfo",
 								"type": "string"
@@ -425,6 +469,11 @@
 								"type": "uint256"
 							},
 							{
+								"internalType": "address",
+								"name": "creator",
+								"type": "address"
+							},
+							{
 								"internalType": "string",
 								"name": "companyInfo",
 								"type": "string"
@@ -479,6 +528,24 @@
 				"type": "function"
 			},
 			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "project_id",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_amount",
+						"type": "uint256"
+					}
+				],
+				"name": "issueCredit",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
 				"inputs": [],
 				"name": "nextProjectId",
 				"outputs": [
@@ -518,6 +585,11 @@
 						"internalType": "uint256",
 						"name": "projectId",
 						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "creator",
+						"type": "address"
 					},
 					{
 						"internalType": "string",
@@ -576,12 +648,12 @@
 						"type": "uint256"
 					},
 					{
-						"internalType": "uint256",
-						"name": "newCreditsIssued",
-						"type": "uint256"
+						"internalType": "string",
+						"name": "purchaseStatus",
+						"type": "string"
 					}
 				],
-				"name": "updateCarbonCredits",
+				"name": "updatePurchaseStatus",
 				"outputs": [],
 				"stateMutability": "nonpayable",
 				"type": "function"
@@ -620,7 +692,7 @@
 		"compilationTarget": {
 			"src/contracts/Project.sol": "ProjectContract"
 		},
-		"evmVersion": "paris",
+		"evmVersion": "shanghai",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -632,12 +704,20 @@
 		"remappings": []
 	},
 	"sources": {
-		"src/contracts/Project.sol": {
-			"keccak256": "0x8db4fd1f4a1dcaf0cf6ac3e649a4ed8fcead807fda5348d0295726fae49d7f77",
+		"src/contracts/CarbonCredit.sol": {
+			"keccak256": "0x24c89e84d808912814afd578f6918e5df289d79128e984108108e1d23c3e3083",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://73200a933fd1aff447f5039122301b44d9975b0ae8360e096c40b0d08c9272b8",
-				"dweb:/ipfs/QmYrY5Rjr4YrWr2W7Cfs7PSWubz7dewSuK99hZz4w6fZBK"
+				"bzz-raw://234856a32e3bee406620ec4e2343904dd6a3fd9103c266d0294faebc635ba142",
+				"dweb:/ipfs/QmPYmvJDYiUyoVPUzXvZR7Kshg4gWYRjaxv8bkYwu1WWiW"
+			]
+		},
+		"src/contracts/Project.sol": {
+			"keccak256": "0x755bc5ad6944268575d88c488be57590d42360f404189a55364617998f1e93d4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://39e1649f5a9dc73ce3a410c5091dcc5eeae339040804f3abbc48d37aed8c1e19",
+				"dweb:/ipfs/QmeXcnxJUay3oGfgJf2ZCxK6foeTNPVpc9yZ2UxNiMHdp9"
 			]
 		}
 	},

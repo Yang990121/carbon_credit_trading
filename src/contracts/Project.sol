@@ -1,12 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
+import "./CarbonCredit.sol";
 
 contract ProjectContract {
     address public owner;
     uint256 public nextProjectId = 0; // Initialize the projectId counter
+    CarbonCredit public carbonCreditContract;
 
     struct Project {
         uint256 projectId;
+        address creator;
         string companyInfo;
         string projectTitle;
         string projectDescription;
@@ -25,8 +28,10 @@ contract ProjectContract {
         _;
     }
     
-    constructor() {
+    constructor(address _carbonCreditContractAddress) {
         owner = msg.sender;
+        carbonCreditContract = CarbonCredit(_carbonCreditContractAddress);
+
     }
     function createProject(
         string memory _companyInfo,
@@ -45,10 +50,14 @@ contract ProjectContract {
         require(bytes(_financialInfo).length > 0, "Financial information is required");
         require(bytes(_projectDocumentation).length > 0, "Documentation is required");
 
+        // Capture the address of the caller (the creator)
+        address creator = msg.sender;
+
         // Create a new project with the provided details
         uint256 projectId = projects.length;
         Project memory newProject = Project({
             projectId: projectId,
+            creator: creator,  // Store the creator's address
             companyInfo: _companyInfo,
             projectTitle: _projectTitle,
             projectDescription: _projectDescription,
@@ -158,14 +167,29 @@ contract ProjectContract {
         return result;
     }
 
-    function updateCarbonCredits(uint256 projectId, uint256 newCreditsIssued) public {
+    function updatePurchaseStatus(uint256 projectId, string memory purchaseStatus) public {
         require(projectId < projects.length, "Project ID does not exist");
         Project storage project = projects[projectId];
-        project.creditsIssued = newCreditsIssued;
+        project.purchaseStatus = purchaseStatus;
     }
 
     function getAllProjects() public view returns (Project[] memory) {
         return projects;
     }
 
+    function issueCredit(uint256 project_id, uint256 _amount) public {
+
+        Project memory project = getProjectById(project_id);
+        project.creditsIssued += _amount;
+
+        // Example: Allow anyone to issue credits
+        CarbonCredit.Credit memory newCredit = CarbonCredit.Credit({
+            certifier: msg.sender,
+            issuanceTime: block.timestamp,
+            amount: _amount,
+            projectTitle: project.projectTitle,
+            projectDeveloper: project.creator
+        });
+        carbonCreditContract.issueCredit(newCredit);
+    }
 }
