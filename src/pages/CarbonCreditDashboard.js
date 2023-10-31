@@ -144,7 +144,6 @@ function CarbonCreditDashboard() {
             </AppBar>
 
             <div style={{ display: role === "company" ? "block" : "none" }}>
-                <h1>this is company display</h1>
                 <CompanyDashboard
                     id={id}
                     accountBalance={accountBalance}
@@ -164,7 +163,6 @@ function CarbonCreditDashboard() {
                 />
             </div>
             <div style={{ display: role === "certifier" ? "block" : "none" }}>
-                <h1>this is certifier display</h1>
                 <CertifierDashboard
                     id={id}
                     accountBalance={accountBalance}
@@ -189,7 +187,6 @@ function CarbonCreditDashboard() {
                     display: role === "projectDeveloper" ? "block" : "none",
                 }}
             >
-                <h1>this is project developer display</h1>
                 <DeveloperDashboard
                     id={id}
                     accountBalance={accountBalance}

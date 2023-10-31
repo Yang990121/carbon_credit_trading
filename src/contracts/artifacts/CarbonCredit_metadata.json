@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.22+commit.4fc1097e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -428,7 +428,7 @@
 		"compilationTarget": {
 			"src/contracts/CarbonCredit.sol": "CarbonCredit"
 		},
-		"evmVersion": "shanghai",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -441,19 +441,19 @@
 	},
 	"sources": {
 		"src/contracts/CarbonCredit.sol": {
-			"keccak256": "0xeb2c51e25d614c3316bed4b846624b577d32c55ee37c79db29d1262a91c925f1",
+			"keccak256": "0x24c89e84d808912814afd578f6918e5df289d79128e984108108e1d23c3e3083",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://cfb43dce28da5fd39d8693a0612268897829e1dde97fdd217cd268a05d2b202c",
-				"dweb:/ipfs/QmY9zjeh7aHPesLWkhM45gpt3ZWppswT3fAwhiMwGxgurY"
+				"bzz-raw://234856a32e3bee406620ec4e2343904dd6a3fd9103c266d0294faebc635ba142",
+				"dweb:/ipfs/QmPYmvJDYiUyoVPUzXvZR7Kshg4gWYRjaxv8bkYwu1WWiW"
 			]
 		},
 		"src/contracts/Project.sol": {
-			"keccak256": "0x4ec5a991677a09b23217c3af500385442eb38c9c89d998e0490892a40bdf5730",
+			"keccak256": "0x755bc5ad6944268575d88c488be57590d42360f404189a55364617998f1e93d4",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://45f34c2387b5e9bce89b35499657231d84bf9fbaa74609816674d4d3de91a73b",
-				"dweb:/ipfs/QmcNPPL8UWAhXJ8hBuegDd1C7KYJR1m2PDxV6xJiqiwofu"
+				"bzz-raw://39e1649f5a9dc73ce3a410c5091dcc5eeae339040804f3abbc48d37aed8c1e19",
+				"dweb:/ipfs/QmeXcnxJUay3oGfgJf2ZCxK6foeTNPVpc9yZ2UxNiMHdp9"
 			]
 		}
 	},
