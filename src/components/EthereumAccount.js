@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
-function EthereumAccount({ myAccount, setMyAccount, accounts, setAccounts }) {
+function EthereumAccount({ account, accounts, setAccount, setAccounts }) {
     const [error, setError] = useState('');
-    const [ethAddress, setEthAddress] = useState('');
     // Use useEffect to automatically run connectToMetaMask when the component mounts
     useEffect(() => {
         connectToMetaMask();
@@ -12,10 +11,11 @@ function EthereumAccount({ myAccount, setMyAccount, accounts, setAccounts }) {
     const connectToMetaMask = async () => {
         try {
             const ethereumAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-            setAccounts(ethereumAccounts);
-            const selectedAccount = ethereumAccounts[0];
-            setEthAddress(selectedAccount);
-            setMyAccount(selectedAccount);
+            if (!accounts) {
+                setAccounts(ethereumAccounts);
+                setAccount(ethereumAccounts[0]);
+            }
+
         } catch (err) {
             if (err.code === 4001) {
                 setError('Please connect to MetaMask.');
@@ -28,7 +28,7 @@ function EthereumAccount({ myAccount, setMyAccount, accounts, setAccounts }) {
     return (
         <div>
             <button onClick={connectToMetaMask}>Connect to MetaMask</button>
-            {ethAddress && <p>Your Ethereum account: {ethAddress}</p>}
+            {account && <p>Your Ethereum account: {account}</p>}
             {error && <p>Error: {error}</p>}
         </div>
     );

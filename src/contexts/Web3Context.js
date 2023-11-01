@@ -11,6 +11,7 @@ export function Web3Provider({ children }) {
     const [carbonCreditContract, setCarbonCreditContract] = useState(null);
     const [projectContract, setProjectContract] = useState(null);
     const [projectAdminContract, setProjectAdminContract] = useState(null);
+    const [selectedAccount, setSelectedAccount] = useState("");
 
     useEffect(() => {
         // Check if the Ethereum provider (e.g., MetaMask) is available
@@ -46,7 +47,7 @@ export function Web3Provider({ children }) {
         try {
             const contractInstance = new web3.eth.Contract(
                 CarbonCreditContract.abi,
-                '0xc7DBb56342416EE51e7501DD680C6E3d71aFc1BB'
+                '0x36509c1bcBC2CcE2af89bCc8756c4E6Ec36BEF69'
             );
             setCarbonCreditContract(contractInstance);
         } catch (error) {
@@ -63,7 +64,7 @@ export function Web3Provider({ children }) {
             // const contractData = ProjectContract.networks[networkId];
             const contractInstance = new web3.eth.Contract(
                 ProjectContract.abi,
-                '0x311cb6F4Ea53f58C9dCBEe93738e45f41b80F26C'
+                '0x253cb6e024423D6342cd6071a9462Ee8e580e3CA'
             );
             setProjectContract(contractInstance);
         } catch (error) {
@@ -78,7 +79,7 @@ export function Web3Provider({ children }) {
             // const contractData = ProjectContract.networks[networkId];
             const contractInstance = new web3.eth.Contract(
                 ProjectAdminContract.abi,
-                '0x9C7267E60feADF1dF5B29a2c4D94348063dFB3C1'
+                '0x966DC4415F159d1b8e81636897061877CD093b06'
             );
             setProjectAdminContract(contractInstance);
         } catch (error) {

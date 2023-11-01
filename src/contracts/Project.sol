@@ -178,11 +178,12 @@ contract ProjectContract {
     }
 
     function issueCredit(uint256 project_id, uint256 _amount) public {
-
-        Project memory project = getProjectById(project_id);
+        require(project_id < projects.length, "Project ID does not exist");
+        require(_amount > 0, "Credits must be more than 0");
+        Project storage project = projects[project_id];
         project.creditsIssued += _amount;
 
-        // Example: Allow anyone to issue credits
+        // // Example: Allow anyone to issue credits
         CarbonCredit.Credit memory newCredit = CarbonCredit.Credit({
             certifier: msg.sender,
             issuanceTime: block.timestamp,
@@ -190,6 +191,7 @@ contract ProjectContract {
             projectTitle: project.projectTitle,
             projectDeveloper: project.creator
         });
+
         carbonCreditContract.issueCredit(newCredit);
     }
 }

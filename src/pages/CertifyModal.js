@@ -11,10 +11,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 function PopupButton({ projectId, selectedAccount }) {
 	const [open, setOpen] = useState(false);
 	const [credits, setCredits] = useState(0);
-	const [loading, setLoading] = useState(false);
 	const [verificationSuccess, setVerificationSuccess] = useState(null);
 	const { projectAdminContract } = useWeb3();
-	const [isLoading, setIsLoading] = useState(false);
+	const [isAcceptLoading, setIsAcceptLoading] = useState(false);
+	const [isRejectLoading, setIsRejectLoading] = useState(false);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -25,10 +25,12 @@ function PopupButton({ projectId, selectedAccount }) {
 	};
 
 	const verifyProject = async (approval) => {
-		setIsLoading(true);
+		if (approval) {
+			setIsAcceptLoading(true);
+		} else {
+			setIsRejectLoading(true);
+		}
 		if (!projectAdminContract || !selectedAccount) {
-			console.log(selectedAccount);
-			console.log(projectAdminContract);
 			console.log(
 				"project admin contract or selected account not available"
 			);
@@ -36,28 +38,32 @@ function PopupButton({ projectId, selectedAccount }) {
 		}
 
 		// Ensure _carbonCredits is a valid positive number greater than zero
-		if (!/^\d+$/.test(credits) || credits <= 0) {
+		if (approval && (!/^\d+$/.test(credits) || credits <= 0)) {
 			console.error("Invalid _carbonCredits value");
 			return;
 		}
 
 		try {
+			console.log(projectId, approval, credits)
 			await projectAdminContract.methods
 				.verifyProject(projectId, approval, credits)
 				.send({
 					from: selectedAccount,
 				});
 			console.log("Project verified successfully");
-			setVerificationSuccess(true);
+			if (approval) {
+				setVerificationSuccess(true);
+			} else {
+				setVerificationSuccess(false);
+			}
 		} catch (error) {
 			console.error("Error calling the contract:", error);
 			setVerificationSuccess(false);
-		} finally {
-			setLoading(false);
 		}
-
 		handleClose();
-		setIsLoading(false);
+		setIsAcceptLoading(false);
+		setIsRejectLoading(false);
+
 	};
 
 	return (
@@ -95,9 +101,9 @@ function PopupButton({ projectId, selectedAccount }) {
 						onClick={() => verifyProject(true)}
 						color="primary"
 						startIcon={
-							isLoading ? <CircularProgress size={24} /> : null
+							isAcceptLoading ? <CircularProgress size={24} /> : null
 						}
-						disabled={isLoading}
+						disabled={isAcceptLoading}
 					>
 						Accept
 					</Button>
@@ -105,16 +111,19 @@ function PopupButton({ projectId, selectedAccount }) {
 						onClick={() => verifyProject(false)}
 						color="error"
 						autoFocus
+						startIcon={
+							isRejectLoading ? <CircularProgress size={24} /> : null
+						}
+						disabled={isRejectLoading}
 					>
 						Reject
 					</Button>
 				</DialogActions>
 			</Dialog>
-			{loading && <p>Verifying project...</p>}
-			{verificationSuccess && <p>Project verified successfully!</p>}
-			{verificationSuccess === false && !loading && (
-				<p>Verification failed. Please try again.</p>
-			)}
+			{verificationSuccess === true && <p>Project verified successfully!</p>}
+			{verificationSuccess === false &&
+				<p>Verification rejected successfully.</p>
+			}
 		</div>
 	);
 }

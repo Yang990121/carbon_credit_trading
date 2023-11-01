@@ -16,11 +16,7 @@ const DeveloperDashboard = ({
 	setSelectedAccount,
 	creditAmount,
 	setCreditAmount,
-	issueCarbonCredits,
 	getCreditBalance,
-	transferCarbonCredits,
-	// creditsIssuedList,
-	// transactions,
 	accountBalance,
 	setAccounts,
 	role
@@ -72,78 +68,6 @@ const DeveloperDashboard = ({
 							height: "200px",
 						}}
 					>
-						<div className="transaction-form">
-							<label
-								style={{
-									marginBottom: "10px",
-									color: "rgb(25, 118, 210)",
-								}}
-							>
-								Select Company Account:
-							</label>
-							<select
-								type="text"
-								placeholder="Company Name"
-								value={selectedAccount}
-								style={{
-									marginTop: "10px",
-									marginLeft: "10px",
-								}}
-								onChange={(e) =>
-									setSelectedAccount(e.target.value)
-								}
-							>
-								{accounts != null ? (
-									accounts.map((account) => (
-										<option
-											key={account}
-											value={account}
-										>
-											{account}
-										</option>
-									))
-								) : (
-									<></>
-								)}
-							</select>
-							<br />
-							<input
-								type="number"
-								placeholder="Credit Amount"
-								value={creditAmount}
-								style={{
-									marginTop: "10px",
-									marginLeft: "10px",
-								}}
-								onChange={(e) =>
-									setCreditAmount(
-										parseInt(e.target.value, 10)
-									)
-								}
-							/>
-							<br />
-							<button
-								onClick={issueCarbonCredits}
-								style={{
-									marginBottom: "10px",
-									marginTop: "15px",
-								}}
-							>
-								Issue Carbon Credits
-							</button>
-							<button
-								onClick={getCreditBalance}
-								style={{ marginLeft: "10px" }}
-							>
-								Get Credit Balance
-							</button>
-							<button
-								onClick={transferCarbonCredits}
-								style={{ marginLeft: "20px" }}
-							>
-								Transfer Credit
-							</button>
-						</div>
 						<Typography
 							variant="h5"
 							style={{ marginTop: "20px" }}
@@ -155,7 +79,7 @@ const DeveloperDashboard = ({
 			</Grid>
 			<ProjectGenerator selectedAccount={selectedAccount} role={role} />
 
-		</div>
+		</div >
 	);
 };
 
