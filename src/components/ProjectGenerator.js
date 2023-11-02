@@ -210,7 +210,9 @@ function ProjectGenerator({ selectedAccount, role }) {
                         <TableRow>
                             {tableHeaders.map((header, index) => (
                                 <TableCell key={index}>
-                                    {camelCaseToTitleCase(header)}
+                                    {camelCaseToTitleCase(header) != "Emissions Offset" ?
+                                        <>{camelCaseToTitleCase(header)}</>
+                                        : <>{camelCaseToTitleCase(header)}<br></br>(gCO2e)</>}
                                 </TableCell>
                             ))}
                         </TableRow>
@@ -238,8 +240,8 @@ function ProjectGenerator({ selectedAccount, role }) {
                                                     "Certified" ? (
                                                     <>
                                                         <PopupButton
-                                                            projectId={
-                                                                project[0]
+                                                            project={
+                                                                project
                                                             }
                                                             selectedAccount={
                                                                 selectedAccount
