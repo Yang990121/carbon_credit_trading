@@ -73,4 +73,7 @@ contract CarbonCredit {
         emit CarbonCredit.CreditIssued(newCredit.certifier, newCredit.issuanceTime, newCredit.amount, newCredit.projectTitle, newCredit.projectDeveloper);
     }
     
+    function getCreditIssuedList() public view returns (Credit[] memory) {
+        return credits;
+    }
 }

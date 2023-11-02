@@ -92,20 +92,35 @@ const CertifierDashboard = ({
 						<TableHead>
 							<TableRow>
 								<TableCell>Issuer</TableCell>
-								<TableCell>Credits</TableCell>
 								<TableCell>Timestamp</TableCell>
+								<TableCell>Credits</TableCell>
+								<TableCell>Project Title</TableCell>
+								<TableCell>Project Developer</TableCell>
 							</TableRow>
 						</TableHead>
 						<TableBody>
-							{creditsIssuedList.map((credit, index) => (
+							{creditsIssuedList ? creditsIssuedList.map((creditList, index) => (
 								<TableRow key={index}>
-									<TableCell>{credit.address}</TableCell>
-									<TableCell>{credit.credits}</TableCell>
 									<TableCell>
-										{credit.timestamp}
+										{creditList[0]}
+									</TableCell>
+									<TableCell>
+										{creditList[1]}
+									</TableCell>
+									<TableCell>
+										{creditList[2]}
+									</TableCell>
+									<TableCell>
+										{creditList[3]}
+									</TableCell>
+									<TableCell>
+										test
+										{creditList[4]}
 									</TableCell>
 								</TableRow>
-							))}
+
+							)) : <></>}
+
 						</TableBody>
 					</Table>
 				</Paper>

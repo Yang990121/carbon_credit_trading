@@ -14,9 +14,6 @@ const DeveloperDashboard = ({
 	selectedAccount,
 	accounts,
 	setSelectedAccount,
-	creditAmount,
-	setCreditAmount,
-	getCreditBalance,
 	accountBalance,
 	setAccounts,
 	role
@@ -80,6 +77,7 @@ const DeveloperDashboard = ({
 			<ProjectGenerator selectedAccount={selectedAccount} role={role} />
 
 		</div >
+
 	);
 };
 

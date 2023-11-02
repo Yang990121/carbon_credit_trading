@@ -210,7 +210,7 @@ function ProjectGenerator({ selectedAccount, role }) {
                         <TableRow>
                             {tableHeaders.map((header, index) => (
                                 <TableCell key={index}>
-                                    {camelCaseToTitleCase(header) != "Emissions Offset" ?
+                                    {camelCaseToTitleCase(header) !== "Emissions Offset" ?
                                         <>{camelCaseToTitleCase(header)}</>
                                         : <>{camelCaseToTitleCase(header)}<br></br>(gCO2e)</>}
                                 </TableCell>

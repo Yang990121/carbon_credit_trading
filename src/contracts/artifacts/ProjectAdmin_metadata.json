@@ -180,11 +180,11 @@
 	},
 	"sources": {
 		"src/contracts/CarbonCredit.sol": {
-			"keccak256": "0xb914eea177b2a43c39ae904d0b7171404e3123a8a3fac9274e9c70fe75541425",
+			"keccak256": "0x7bd59d97b2abb0fe578cfd7a8cc282247b83c0a8a1a421fa1ae08b796936f868",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://4e4515155010eb09a7ad19081cae655335f93b0f797e0a13eb867e04c46da7b4",
-				"dweb:/ipfs/QmdkffQMr7b91xWyMgkEPSudBYhoCquGN7ustrgmCXWkYB"
+				"bzz-raw://bc5c8d6b13075258d781f558fc7b2674874259b2c7fc97cf8125f0a3f5c7603b",
+				"dweb:/ipfs/QmNYcC25o4ADL39Qxwo3jKqHaGDi2ghMpTqSZ6rwn8iBsQ"
 			]
 		},
 		"src/contracts/Project.sol": {

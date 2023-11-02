@@ -22,49 +22,31 @@ function CarbonCreditDashboard() {
     const [role, setRole] = useState("company");
     const [roles, setRoles] = useState(["company", "projectDeveloper", "certifier"]);
 
-    // const issueCarbonCredits = async () => {
-    //     // In a real application, you would send a transaction to the smart contract
-    //     // to record the carbon credit transaction and retrieve this data from the blockchain.
-    //     if (!web3 || !carbonCreditContract) {
-    //         console.log("no web3 or carbonCreditContract detected");
-    //         return;
-    //     }
+    const getCreditList = async () => {
+        // In a real application, you would send a transaction to the smart contract
+        // to record the carbon credit transaction and retrieve this data from the blockchain.
+        if (!web3 || !carbonCreditContract) {
+            console.log("no web3 or carbonCreditContract detected");
+            return;
+        }
 
-    //     try {
-    //         // Convert the credit amount to the contract's required format (if needed)
-    //         // const creditAmountWei = etherToWei(creditAmount.toString(), 'ether');
-    //         if (
-    //             web3.utils.toChecksumAddress(accountHolder) ===
-    //             web3.utils.toChecksumAddress(selectedAccount)
-    //         ) {
-    //             // Send a transaction to the smart contract to record a carbon credit transaction
-    //             const txResult = await carbonCreditContract.methods
-    //                 .issueCarbonCredits(selectedAccount, creditAmount)
-    //                 .send({
-    //                     from: selectedAccount, // Use the selected Ethereum account
-    //                 });
+        try {
+            // Send a transaction to the smart contract to record a carbon credit transaction
+            await carbonCreditContract.methods.getCreditIssuedList().call()
+                .then((creditList) => {
+                    // creditList will contain the array of Credit structs
+                    console.log("Credit issued:", creditList);
+                    setCreditsIssuedList(creditList);
+                })
+                .catch((error) => {
+                    console.error("Error getting credit list:", error);
+                });
 
-    //             console.log("Carbon credits issued:", txResult);
-    //         } else {
-    //             console.error(
-    //                 "Only the account holder can issue carbon credits"
-    //             );
-    //         }
-    //         const newCreditIssue = {
-    //             address: selectedAccount,
-    //             credits: creditAmount,
-    //             timestamp: new Date().toLocaleString(),
-    //         };
 
-    //         setCreditsIssuedList([...creditsIssuedList, newCreditIssue]);
-
-    //         // Clear the input fields
-    //         setCreditAmount(0);
-    //     } catch (error) {
-    //         console.error("Error adding transaction", error);
-    //     }
-    // };
-
+        } catch (error) {
+            console.error("Error adding transaction", error);
+        }
+    };
     // const transferCarbonCredits = async () => {
     //     try {
     //         // Transfer carbon credits
@@ -109,7 +91,12 @@ function CarbonCreditDashboard() {
             console.error("Error getting credit balance", error);
         }
     };
-    getCreditBalance();
+    useEffect(() => {
+        getCreditBalance();
+        getCreditList();
+        return;
+    })
+
 
     let { id } = useParams();
     return (

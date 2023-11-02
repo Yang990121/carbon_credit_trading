@@ -16,7 +16,6 @@ const CompanyDashboard = ({
 	id,
 	selectedAccount,
 	setSelectedAccount,
-	creditsIssuedList,
 	transactions,
 	accountBalance,
 	setAccounts,
@@ -76,39 +75,6 @@ const CompanyDashboard = ({
 				</Grid>
 			</Grid>
 			<ProjectGenerator selectedAccount={selectedAccount} role={role} />
-			<div className="credit-list">
-				<Paper
-					elevation={3}
-					style={{ marginBottom: "20px", padding: "20px" }}
-				>
-					<Typography
-						variant="h5"
-						style={{ color: "rgb(25, 118, 210)" }}
-					>
-						List of Credits Issued
-					</Typography>
-					<Table>
-						<TableHead>
-							<TableRow>
-								<TableCell>Issuer</TableCell>
-								<TableCell>Credits</TableCell>
-								<TableCell>Timestamp</TableCell>
-							</TableRow>
-						</TableHead>
-						<TableBody>
-							{creditsIssuedList.map((credit, index) => (
-								<TableRow key={index}>
-									<TableCell>{credit.address}</TableCell>
-									<TableCell>{credit.credits}</TableCell>
-									<TableCell>
-										{credit.timestamp}
-									</TableCell>
-								</TableRow>
-							))}
-						</TableBody>
-					</Table>
-				</Paper>
-			</div>
 
 			<div className="transaction-list">
 				<Paper
