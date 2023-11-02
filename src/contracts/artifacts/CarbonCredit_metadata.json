@@ -123,73 +123,6 @@
 						"internalType": "address",
 						"name": "",
 						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "allowance",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "spender",
-						"type": "address"
-					},
-					{
-						"internalType": "uint256",
-						"name": "value",
-						"type": "uint256"
-					}
-				],
-				"name": "approve",
-				"outputs": [
-					{
-						"internalType": "bool",
-						"name": "success",
-						"type": "bool"
-					}
-				],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "balanceOf",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
 					}
 				],
 				"name": "carbonCredits",
@@ -441,11 +374,11 @@
 	},
 	"sources": {
 		"src/contracts/CarbonCredit.sol": {
-			"keccak256": "0x97e5df4ab5ee4bff90e4ed8efe718ad6c877ab4e5a1ddb5a10c115b2d6650759",
+			"keccak256": "0xb914eea177b2a43c39ae904d0b7171404e3123a8a3fac9274e9c70fe75541425",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ca8fea767bb503227a8459f03ed4dee38129fe512dd752893827e4739f58ed3d",
-				"dweb:/ipfs/QmWYfiVtHZtojwVjKLyJg8bgQM452SkgKV73XJFiD6ye7E"
+				"bzz-raw://4e4515155010eb09a7ad19081cae655335f93b0f797e0a13eb867e04c46da7b4",
+				"dweb:/ipfs/QmdkffQMr7b91xWyMgkEPSudBYhoCquGN7ustrgmCXWkYB"
 			]
 		},
 		"src/contracts/Project.sol": {
