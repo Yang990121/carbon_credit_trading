@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { useWeb3 } from "../contexts/Web3Context";
 import CircularProgress from "@mui/material/CircularProgress";
 
-function PopupButton({ projectId, selectedAccount }) {
+function PopupButton({ project, projectId, selectedAccount }) {
 	const [open, setOpen] = useState(false);
 	const [credits, setCredits] = useState(0);
 	const [verificationSuccess, setVerificationSuccess] = useState(null);
@@ -23,7 +23,19 @@ function PopupButton({ projectId, selectedAccount }) {
 	const handleClose = () => {
 		setOpen(false);
 	};
-
+	useEffect(() => {
+		if (project) {
+			calculateCredits();
+			return;
+		}
+	})
+	const calculateCredits = () => {
+		const emissionsOffset = project[5];
+		const convertToTon = 100000;
+		const rate = 1.65;
+		const credits = emissionsOffset / convertToTon * rate
+		setCredits(parseInt(credits));
+	}
 	const verifyProject = async (approval) => {
 		if (approval) {
 			setIsAcceptLoading(true);
@@ -44,9 +56,8 @@ function PopupButton({ projectId, selectedAccount }) {
 		}
 
 		try {
-			console.log(projectId, approval, credits)
 			await projectAdminContract.methods
-				.verifyProject(projectId, approval, credits)
+				.verifyProject(project[0], approval, credits)
 				.send({
 					from: selectedAccount,
 				});
