@@ -16,34 +16,6 @@ function CreditPurchase({ account, project, projects }) {
 
     }
 
-    // const transferCarbonCredits = async () => {
-    //     try {
-    //         // Transfer carbon credits
-    //         const txResult = await carbonCreditContract.methods
-    //             .transferCarbonCredits(selectedAccount, creditAmount)
-    //             .send({
-    //                 from: accountHolder, // Use the selected Ethereum account
-    //             });
-
-    //         console.log("Carbon credits transferred:", txResult);
-
-    //         // Update the UI or perform any other actions after the transaction is successful
-    //         const transaction = {
-    //             fromAddress: accountHolder,
-    //             toAddress: selectedAccount,
-    //             credits: creditAmount,
-    //             timestamp: new Date().toLocaleString(),
-    //         };
-
-    //         setTransactions([...transactions, transaction]);
-
-    //         // Clear the input fields
-    //         setCreditAmount(0);
-    //         setSelectedAccount(accounts[0]);
-    //     } catch (error) {
-    //         console.error("Error transferring carbon credits:", error);
-    //     }
-    // };
     return (
         <button type="button" onClick={purchaseCredits}>
             Buy Credits
