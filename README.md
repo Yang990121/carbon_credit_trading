@@ -11,7 +11,7 @@
 ### after npm install is complete, npm start (on first terminal)
 
 
-# at https://remix.ethereum.org/
+# Go to https://remix.ethereum.org/
 1. connect to localhost at workspace dropdown
 2. connect to metamask wallet (ensure enough goerli/ other eth available)
       - https://goerli-faucet.pk910.de/ to mine goerliEth
